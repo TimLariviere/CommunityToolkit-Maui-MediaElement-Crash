@@ -25,6 +25,8 @@ public class MyApp_Workaround : Application
 {
     public MyApp_Workaround()
     {
+        // A workaround is to delay the creation of the MediaElement until the page is loaded.
+        
         var contentPage = new ContentPage();
         contentPage.Loaded += (sender, args) =>
             contentPage.Content = new MediaElement
@@ -46,7 +48,7 @@ public static class MauiProgram
     {
         var builder = MauiApp.CreateBuilder();
         builder
-            .UseMauiApp<MyApp_Workaround>()
+            .UseMauiApp<MyApp>()
             .UseMauiCommunityToolkitMediaElement()
             .ConfigureFonts(fonts =>
             {
